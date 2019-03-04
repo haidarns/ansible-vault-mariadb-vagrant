@@ -1,0 +1,7 @@
+---
+- name: Installing additional package for ansible mysql
+  apt:
+    name:
+      - software-properties-common
+      - python-mysqldb
+    update_cache: yes

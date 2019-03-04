@@ -1,0 +1,7 @@
+---
+- hosts:
+    - mariadb
+  roles:
+    - role: common
+    - role: mariadb
+  become: yes

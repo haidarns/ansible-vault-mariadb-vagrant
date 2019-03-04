@@ -1,0 +1,14 @@
+---
+- name: Creating Databases
+  mysql_db:
+    name: "{{ mariadb_name }}"
+    state: present
+    collation: utf8_general_ci
+
+- name: Creating User and Grant Privilege
+  mysql_user:
+    name: "{{ mariadb_user }}"
+    password: "{{ mariadb_pass }}"
+    priv: "{{ mariadb_name }}.*:ALL,GRANT"
+    host: localhost
+    state: present
