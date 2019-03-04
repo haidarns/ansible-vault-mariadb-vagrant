@@ -3,7 +3,7 @@
 
 boxes=[
   {
-    :name => "db",
+    :name => "mariadb",
     :host => "192.168.56.102"
   }
 ]
@@ -24,8 +24,8 @@ Vagrant.configure("2") do |config|
       end
 
       node.ssh.insert_key = false
-      node.ssh.private_key_path = ['~/.vagrant.d/insecure_private_key', '~/.ssh/id_rsa_nopass']
-      node.vm.provision "file", source: "~/.ssh/id_rsa_nopass.pub", destination: "~/.ssh/authorized_keys"
+      node.ssh.private_key_path = ['~/.vagrant.d/insecure_private_key', '~/.ssh/id_rsa']
+      node.vm.provision "file", source: "~/.ssh/id_rsa.pub", destination: "~/.ssh/authorized_keys"
       node.ssh.forward_agent = true
 
       node.vm.provision :shell, inline: "apt install python -y"

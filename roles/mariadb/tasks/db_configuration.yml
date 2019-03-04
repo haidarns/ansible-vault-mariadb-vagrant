@@ -12,3 +12,4 @@
     priv: "{{ mariadb_name }}.*:ALL,GRANT"
     host: localhost
     state: present
+  notify: Restart MariaDB
